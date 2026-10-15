@@ -1,0 +1,6 @@
+# P0 draft. Effective enforcement also requires Owner-configured branch protection.
+# The base branch must contain this file; draft PRs do not auto-request code owners.
+# @Zwhao0 is the actual repository Owner, not an independent scientific reviewer.
+# ChatGPT scientific review and Owner approval remain separate recorded requirements.
+# Default covers governance, this file, CI, paper contracts, core mechanisms and tests.
+* @Zwhao0

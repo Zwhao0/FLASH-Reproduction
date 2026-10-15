@@ -1,12 +1,15 @@
 # Project state — FLASH-Reproduction
 
-- Date: 2026-10-15
-- Current phase: **P0 — governance/bootstrap and evidence inventory**
-- Repo: `Zwhao0/FLASH-Reproduction` (Public, new independent project)
-- Current implementation: **none**. Functional, scientific, GPU, end-to-end results: **NOT_RUN**.
-- Governance: B+B+A (offline autonomy; only safeguarded low-risk automege after verification; faithful reproduction first).
-- Sources: FLASH Chinese thesis Chapter 3 and GREYHOUND paper available to Codex on owner's computer; exact paths, editions and hashes **NOT_YET_VERIFIED**. Reference: `wutianyuan1/Greyhound`; license and commit pin **NOT_YET_VERIFIED**.
-- Infrastructure: Owner will provision server information directly to Codex. **No access/use authorization under P0.**
-- Main protection, separate automation identity, CI, branch safeguards, automege verification: **NOT_CONFIGURED / NOT_VERIFIED**; never claim security enforcement from this doc.
-- Next: read the P0 GitHub Issue, verify papers & GREYHOUND provenance without publishing private paths, establish Paper Contract skeleton and source-to-mechanism map, draft enforceable GitHub policy; deliver Draft PR for review.
-- Do not pull code/artifacts from previous unsuccessful project repositories. No merges, environment changes, H800 operations or destructive actions.
+- Date: 2026-10-15 (Asia/Shanghai).
+- Phase: **P0 — offline evidence/specification delivery for review**. P1–P6 **NOT_AUTHORIZED**.
+- Sole repo: `Zwhao0/FLASH-Reproduction`, Public. Current task: [Issue #1](https://github.com/Zwhao0/FLASH-Reproduction/issues/1), keep **Open**.
+- Main / bootstrap HEAD verified after fetch: `272a544095bad9dedc3a61a23e5f18a18a799233`. Working branch: `codex/p0-evidence-contract`, created from origin/main. Delivery commit/PR: pending publication of the P0 draft; the final record will identify the actual checked commit. No main push/merge/history rewrite.
+- Implementation: **none**. Only research documents, publication/document checks and read-only CI/CODEOWNERS drafts. FLASH build, CPU algorithm tests, GPU/NCCL, training, fault injection and scientific/end-to-end reproduction: **NOT_RUN**.
+- Governance: B+B+A. H-risk review applies to this mixed PR. Auto-merge **NOT_AUTHORIZED / NOT_ENABLED by this task**; current repository auto-merge setting itself **NOT_VERIFIED**. No main-rule or identity changes performed.
+- Sources: both local papers located in the authorized workspace; title/date/pages/SHA-256 verified. See [SOURCES](SOURCES.md). Private paths, PDFs, extracted full text and screenshots remain local. GREYHOUND pinned at `d641b3997c17de700e1ef7d37e353418df7e336d`; detector license **UNKNOWN / ANALYSIS_ONLY**; no substantive reference code copied.
+- Deliverables: 16 mechanism requirements in [PAPER_CONTRACT](PAPER_CONTRACT.md) and [TRACEABILITY](TRACEABILITY.md); [GREYHOUND comparison](GREYHOUND_COMPARISON.md); 15 **OPEN** scientific decisions in [DECISIONS](DECISIONS.md); [GitHub policy](GITHUB_POLICY.md); [P0–P6 roadmap](ROADMAP.md). Planned implementation/test paths are not implemented or approved goldens.
+- GitHub facts: public API reports main `protected=false`, status-check enforcement `off`, contexts/checks empty; rulesets `[]`. Detailed protection endpoint HTTP401 via anonymous access. Connector login is Owner `Zwhao0`; independent restricted identity **NOT_IMPLEMENTED**, Git transport identity **NOT_VERIFIED**. CODEOWNERS and CI in this PR are drafts, not effective main safeguards. All GH-N01–N12 permission tests **NOT_RUN**.
+- Infrastructure: **No SSH/H800/server environment/log/credential access, GPU execution or training authorization.** No connection, environment inspection, log reading or credential inspection was performed.
+- Validation and failures: [P0 evidence](evidence/P0_VALIDATION.md), with actual commands, exit codes, limits and independent review outcome. Document/static PASS must not be promoted to scientific/GPU PASS.
+- Blockers / Review Required: BOCD/Rbeast posterior mapping, threshold/iteration definitions, duration and state synchronization, clique/rank aggregation, fail-stop causality, topology identity, integration scope and experiment definitions; detector reuse rights; actual main protection and separate execution identity. ChatGPT independent scientific review and Owner approval remain pending.
+- Safe next step: complete the P0 Draft PR, verify published files and remote checks, report evidence and stop at P0. After delivery, wait for ChatGPT review; do not begin a new phase. Owner may separately approve/configure permissions and authorize a narrowly scoped P1 Issue. Details in [ROADMAP](ROADMAP.md).

@@ -15,7 +15,9 @@
 3. 工作完成后以 Draft PR、测试记录、问题清单及状态更新提交审查；不凭聊天结论声明复现成功。
 
 ## 当前状态
-**P0 启动阶段。** 本仓库的初始化文件不代表任何 FLASH 功能已经实现，也不代表 GPU、训练、NCCL 或论文忠实性经过验证。
+**P0 离线研究审查阶段。** 本次成果关联 [Issue #1](https://github.com/Zwhao0/FLASH-Reproduction/issues/1)，不代表任何 FLASH 功能已经实现，也不代表 GPU、训练、NCCL 或论文忠实性经过验证。
+
+审查入口：[来源与许可](docs/SOURCES.md) → [论文机制契约](docs/PAPER_CONTRACT.md) / [逐项追踪](docs/TRACEABILITY.md) → [关键待决策项](docs/DECISIONS.md)。另见 [GREYHOUND 对照](docs/GREYHOUND_COMPARISON.md)、[P0–P6 路线](docs/ROADMAP.md)、[GitHub 保护方案](docs/GITHUB_POLICY.md) 和 [验证与失败证据](docs/evidence/P0_VALIDATION.md)。当前事实、提交及 PR 以 [STATE](docs/STATE.md) 为准。
 
 ## 安全
 当前仓库为 Public。不要提交 SSH 信息、IP/用户名、令牌、论文 PDF（未经授权时）、未脱敏服务器信息或真实任务日志。真实服务器可连通不等于获得运行/改动授权。
