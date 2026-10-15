@@ -23,7 +23,7 @@ FLASH 引用页为印刷页（括号内 PDF 页）；GREYHOUND 引用采用节�
 
 | 机制 | GREYHOUND 论文/固定源码 | FLASH 第三章 | 结论/待审边界 |
 | --- | --- | --- | --- |
-| 检测入口 | §4.2，736–737：拦截 NCCL，ACF 找重复周期，调用时间戳差估计迭代时间；源码 `detect_failslow`→`find_period`→`find_performance_drop` | §3.2.2，25–26（41–42）：框架每迭代向 Redis 上报，Rank 0 为检测基准；§3.3.3，35（51）：Rank 0后台进程定期推送时长、初始化时上报parallel states | `CONFIRMED_TEXT`：观测对象不同。ACF 不进入 Faithful FLASH 基线；框架 callback 与后台日志读取的准确边界仍待审 |
+| 检测入口 | §4.2，736–737：拦截 NCCL，ACF 找重复周期，调用时间戳差估计迭代时间；源码 `detect_failslow`→`find_period`→`find_performance_drop` | §3.2.2，25–26（41–42）：框架每迭代向 Redis 上报，Rank 0 为检测基准；§3.3.3，35（51）：Rank 0后台进程定期推送时长、初始化时上报parallel states | `CONFIRMED_TEXT`：观测对象不同。ACF 不进入 Faithful FLASH 基线；框架 callback 与后台定时 Redis 上报的准确边界仍待审 |
 | 非侵入性 | §4.2 声称框架无关检测；公开 `megatron_logger.py` 要求框架上报 TP/DP/PP；§5 明确 mitigation 需框架支持 | §3.2.1、§3.3.3、§3.4.2 承认约10行框架修改/状态上报；摘要、部分评估却称无训练代码或专用适配 | `CONFLICT`：不能把“无侵入”定为零源码修改；也不能将参考检测/缓解框架适配混成单一结论 |
 | BOCD/模型 | §4.2 定义运行长度后验，概率阈值0.9；源码 `slow_detection.py` 使用 `Rbeast.beast`、`trend.cp/cpPr`，默认概率0.8 | §3.2.2，26（42）：称 BOCD/Rbeast，窗口30、概率0.8、退化0.2 | `CONFLICT/UNKNOWN`：Rbeast 输出不能未经验证视作运行长度后验。需核对数学模型、概率意义、在线更新和端点行为，不按参考源码默认裁定 |
 | 过滤 | 论文 §4.2 比较变点前后均值，变化不足10%忽略；源码增加 z-score>3 移除、默认长度10、绝对均值差/较大均值>0.1 | §§3.2.2/3.3.2：预热3、z-score>3、变点距2、恢复比率0.75；§3.4.3 又提持续20迭代 | `CONFLICT`：不能复制参考长度10/对称变化定义；过滤后索引映射、零分母、迟到/重复上报和持续性要独立明确 |

@@ -1,6 +1,6 @@
 # P0 验证、失败与脱敏证据
 
-日期：2026-10-15（Asia/Shanghai）。范围：[Issue #1](https://github.com/Zwhao0/FLASH-Reproduction/issues/1)。基线 `272a544095bad9dedc3a61a23e5f18a18a799233`；分支 `codex/p0-evidence-contract`。这是研究及仓库自动化检查，**没有 FLASH 系统实现或科学通过声明**。
+日期：2026-10-15（Asia/Shanghai）。范围：[Issue #1](https://github.com/Zwhao0/FLASH-Reproduction/issues/1)。基线 `272a544095bad9dedc3a61a23e5f18a18a799233`；公共检查快照 `1e50e0871c4a0afb2aa416e3e1e5eeb1e55cc1e3`，Git tree `d3d1b5494a6a9454993b2fadbe71f88f862a936a`；分支 `codex/p0-evidence-contract`。这是研究及仓库自动化检查，**没有 FLASH 系统实现或科学通过声明**。
 
 ## 环境与对象
 
@@ -22,9 +22,15 @@
 | 结构/链接/敏感形状 | `python3 scripts/check_p0.py` | 0；17个tracked文件、16项Paper ID对齐、规定文件/inline本地链接/UTF-8/空白/有限敏感形状通过 | PASS：仅文档与发布检查 |
 | staged格式 | `git diff --cached --check` | 0；候选文件已显式暂存后核对，无PDF/截图/服务器说明/原始日志/第三方实质代码 | PASS：仅格式 |
 | 独立智能体复核 | 另设只读复核者核对契约、来源、歧义与CI | 已完成并修订发现，见下文；不替代ChatGPT科学审查 | PASS：P0静态复核，不是科学验收 |
-| 远端CI | PR/分支的`P0 documentation / p0-docs` | 尚未提交草案；无远端run | NOT_RUN |
+| 远端CI | PR/分支的`P0 documentation / p0-docs` | 公共快照的[push run](https://github.com/Zwhao0/FLASH-Reproduction/actions/runs/38742551982)及[PR run](https://github.com/Zwhao0/FLASH-Reproduction/actions/runs/38742615958)均completed/success；GitHub状态，不另伪造进程退出数值 | PASS：仅文档/发布检查 |
 
 `inspect_github_public.py`对预期管理端点401仍返回进程0，只表示成功记录了可见性限制；输出逐端点HTTP，不能解释成所有权限设置已验证。文档检查只验证tracked文件、规定文档/16项Paper ID一致性、简单inline本地文件链接、UTF-8/空白和有限敏感形状。它不验证远端URL、锚点、全部Markdown语法、所有秘密或论文真实性，也不能防止拥有Owner权限的身份绕过规则。
+
+## 提交完整性与交付状态
+
+[Draft PR #2](https://github.com/Zwhao0/FLASH-Reproduction/pull/2)关联Issue #1，保持Open/Draft/Unmerged。首个公共提交以上述main为唯一父提交；通过连接器生成的Git tree与本地已检查快照一致（SHA见本页开头），17个tracked文件，其中16个相对main有变更。公共提交使用noreply身份元信息，本机默认身份提交只保存在本地恢复分支。
+
+本记录写入时HEAD是上述公共检查快照。随后仅改三份文档：本记录、STATE与GREYHOUND对照中残留的“日志读取”措辞；不修改算法、测试预期或CI代码。最终提交在本地/远端重跑同一检查，最终HEAD及run链接写于PR描述，避免在其自身内容中循环包含自身commit hash。最终继续工作时必须从PR当前head重新取证，不把快照SHA当作永远最新的HEAD。
 
 ## 独立推导与未定义边界
 
@@ -46,7 +52,7 @@
 
 ## 独立复核与修订
 
-独立复核者与初始撰稿子任务分开。初轮发现整合尚未完成（新增文件未tracked、evidence/STATE尚待补），以及clique的设计/实现CV门槛差异、无记录与实际无调用的区别、严格阈值数学措辞。主智能体补齐STATE/evidence、显式暂存，并保留CONFLICT/修正过强表述及严格不等号，未改变论文或测试golden。最终复核确认论文哈希、GREYHOUND缓存文件Git blob与固定tree一致性、许可限制、科学歧义和CI只读边界；追加指出的无依据“监视框架日志”已删除，改按论文两条上报叙述保留UNKNOWN；删除公共状态中无关的本地偏好元信息。Paper ID规则补充独立缺失/重复/错配反例。该复核不是最终科学批准。
+独立复核者与初始撰稿子任务分开。初轮执行文档检查返回exit1：整合尚未完成（新增文件未tracked、evidence/STATE尚待补），以及clique的设计/实现CV门槛差异、无记录与实际无调用的区别、严格阈值数学措辞。主智能体补齐STATE/evidence、显式暂存，并保留CONFLICT/修正过强表述及严格不等号，未改变论文或测试golden。最终复核确认论文哈希、GREYHOUND缓存文件Git blob与固定tree一致性、许可限制、科学歧义和CI只读边界；追加指出的无依据“监视框架日志”已删除，改按论文两条上报叙述保留UNKNOWN；删除公共状态中无关的本地偏好元信息。Paper ID规则补充独立缺失/重复/错配反例。复核者最终在公共快照上重跑检查均exit0，并指出对照文档句尾残留的“后台日志读取”，最后更正为“后台定时Redis上报”。该复核不是最终科学批准。
 
 ## 未运行与审批
 
