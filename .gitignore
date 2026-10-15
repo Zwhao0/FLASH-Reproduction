@@ -1,0 +1,20 @@
+# Private local reference material; do not publish source PDFs or credentials
+.local/
+.local-*/
+private/
+secrets/
+*.pem
+*.key
+.env
+.env.*
+*.pdf
+*.log
+runs/raw/
+__pycache__/
+.pytest_cache/
+.venv/
+build/
+dist/
+*.so
+*.o
+.DS_Store
